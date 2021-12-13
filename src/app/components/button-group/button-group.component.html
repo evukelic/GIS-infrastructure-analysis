@@ -1,0 +1,42 @@
+<div class="button-group">
+  <button
+    mat-raised-button
+    class="map-file-button"
+    #tooltip="matTooltip"
+    matTooltip="Provedite analizu učitavanjem datoteke ili klikom na adresu."
+    [matTooltipPosition]="'left'"
+    (click)="onCSVUploadClick()"
+  >
+    <mat-icon class="icon">upload</mat-icon>CSV
+  </button>
+
+  <button
+    mat-raised-button
+    class="map-address-button"
+    (click)="onAddressButtonClick()"
+  >
+    Prikaži adrese
+  </button>
+
+  <button
+    mat-raised-button
+    [matMenuTriggerData]="userMenuData"
+    [matMenuTriggerFor]="menu"
+    class="map-menu-button"
+  >
+    Odaberi sloj
+  </button>
+  <mat-menu #menu="matMenu">
+    <ng-template matMenuContent let-menuWidth="menuWidth">
+      <div [style.width.px]="menuWidth">
+        <button
+          mat-menu-item
+          *ngFor="let item of menuItems"
+          (click)="onMenuItemClick(item)"
+        >
+          {{ item.name }}
+        </button>
+      </div>
+    </ng-template>
+  </mat-menu>
+</div>
