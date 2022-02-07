@@ -9,6 +9,7 @@ import {
 } from '@angular/core';
 import * as L from 'leaflet';
 import 'leaflet/dist/images/marker-shadow.png';
+import 'leaflet/dist/images/marker-icon-2x.png';
 import { DataServiceService } from 'src/app/services/data-service.service';
 import { ButtonGroupComponent } from '../button-group/button-group.component';
 import { MapPopupComponent } from './map-popup/map-popup.component';
