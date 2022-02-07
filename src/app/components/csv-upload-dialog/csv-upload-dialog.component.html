@@ -1,10 +1,20 @@
 <h1 mat-dialog-title>Učitaj CSV datoteku</h1>
 
 <div mat-dialog-content>
-  <input class="file" type="file" id="file" accept=".csv" />
+  <input
+    class="file"
+    #csvReader
+    type="file"
+    id="file"
+    (change)="uploadListener($event)"
+  />
 </div>
-
+<div class="error">
+  <span *ngIf="isError" class="error-msg">Pogrešan format datoteke</span>
+</div>
 <div mat-dialog-actions align="end">
   <button mat-raised-button mat-dialog-close>Odustani</button>
-  <button mat-raised-button class="focus">U redu</button>
+  <button mat-raised-button class="focus" (click)="onCSVUploadClick($event)">
+    U redu
+  </button>
 </div>

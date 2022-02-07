@@ -1,7 +1,7 @@
 .button-group {
   position: absolute;
-  margin-top: 5%;
-  z-index: 1;
+  margin-top: 3%;
+  z-index: 1000;
   right: 1%;
   width: 8%;
 }
@@ -11,7 +11,7 @@
   font-family: "Open Sans", sans-serif;
   color: #ffff;
   width: 100%;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .map-address-button {
@@ -31,4 +31,43 @@
 
 .icon {
   margin-right: 1px;
+}
+
+.example-form {
+  color: #424242;
+  width: 100%;
+  margin-bottom: -15px;
+}
+
+:host ::ng-deep.mat-form-field-outline {
+  background-color: white !important;
+  border-radius: 5px;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+  color: #424242 !important;
+}
+
+// mat-label normal state style
+::ng-deep .mat-form-field-label {
+  color: rgba(0, 0, 0, 0.6) !important;
+}
+
+// mat-label focused style
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+  color: #424242 !important;
+}
+
+.input-width {
+  width: inherit;
+}
+
+.error {
+  font-size: 10px;
+  color: red;
+}
+
+.check-icon {
+  float: right;
+  padding-top: 8%;
 }

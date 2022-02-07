@@ -1,5 +1,10 @@
-<div class="map" id="map" class="match-parent">
+<div class="match-parent" #map id="map">
   <app-button-group
     (layerVisibilityChanged)="toggleLayerVisibility($event)"
+    (layersHidden)="clearLayersVisibility()"
+    (analysesHidden)="clearAnalysesVisibility()"
+    (findLocation)="fetchLocationFromInput($event)"
+    (loadCsv)="analyzeFromCsv($event)"
+    [isError]="err"
   ></app-button-group>
 </div>

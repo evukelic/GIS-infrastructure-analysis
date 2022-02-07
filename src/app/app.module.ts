@@ -19,6 +19,17 @@ import { ButtonGroupComponent } from './components/button-group/button-group.com
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule } from '@angular/material/dialog';
 import { CsvUploadDialogComponent } from './components/csv-upload-dialog/csv-upload-dialog.component';
+import { MapPopupComponent } from './components/map/map-popup/map-popup.component';
+import { MatTabsModule } from '@angular/material/tabs';
+import { HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { MapTableComponent } from './components/map-table/map-table.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableExporterModule } from 'mat-table-exporter';
 
 @NgModule({
   declarations: [
@@ -27,6 +38,8 @@ import { CsvUploadDialogComponent } from './components/csv-upload-dialog/csv-upl
     MapComponent,
     ButtonGroupComponent,
     CsvUploadDialogComponent,
+    MapPopupComponent,
+    MapTableComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,6 +55,14 @@ import { CsvUploadDialogComponent } from './components/csv-upload-dialog/csv-upl
     MatProgressSpinnerModule,
     MatTooltipModule,
     MatDialogModule,
+    MatTabsModule,
+    HttpClientModule,
+    MatTableModule,
+    MatInputModule,
+    MatFormFieldModule,
+    FormsModule,
+    MatPaginatorModule,
+    MatTableExporterModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

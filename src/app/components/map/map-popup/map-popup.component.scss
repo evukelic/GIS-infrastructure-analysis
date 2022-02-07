@@ -1,0 +1,16 @@
+.txt {
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.mat-btn {
+  background: #424242;
+  font-family: "Open Sans", sans-serif;
+  color: #ffff;
+  width: 100%;
+}

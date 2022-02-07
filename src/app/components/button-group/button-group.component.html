@@ -1,21 +1,29 @@
 <div class="button-group">
+  <form class="example-form">
+    <mat-form-field class="input-width" appearance="outline">
+      <mat-label>Lokacija</mat-label>
+      <input
+        matInput
+        [(ngModel)]="inputValue"
+        name="location"
+        (keyup.enter)="searchForLocation()"
+        #tooltip="matTooltip"
+        matTooltip="Provedite analizu unošenjem lokacije."
+        [matTooltipPosition]="'left'"
+      />
+      <span *ngIf="isError" class="error">Unos nije valjan</span>
+      <mat-icon matSuffix (click)="searchForLocation()">search</mat-icon>
+    </mat-form-field>
+  </form>
   <button
     mat-raised-button
     class="map-file-button"
     #tooltip="matTooltip"
-    matTooltip="Provedite analizu učitavanjem datoteke ili klikom na adresu."
+    matTooltip="Provedite analizu učitavanjem CSV datoteke."
     [matTooltipPosition]="'left'"
     (click)="onCSVUploadClick()"
   >
     <mat-icon class="icon">upload</mat-icon>CSV
-  </button>
-
-  <button
-    mat-raised-button
-    class="map-address-button"
-    (click)="onAddressButtonClick()"
-  >
-    Prikaži adrese
   </button>
 
   <button
@@ -35,8 +43,27 @@
           (click)="onMenuItemClick(item)"
         >
           {{ item.name }}
+          <mat-icon matSuffix class="check-icon" *ngIf="item.checked"
+            >check</mat-icon
+          >
         </button>
       </div>
     </ng-template>
   </mat-menu>
+
+  <button
+    mat-raised-button
+    class="map-menu-button"
+    (click)="onClearLayersClick()"
+  >
+    Očisti slojeve
+  </button>
+
+  <button
+    mat-raised-button
+    class="map-menu-button"
+    (click)="onClearAnalysesClick()"
+  >
+    Očisti analize
+  </button>
 </div>

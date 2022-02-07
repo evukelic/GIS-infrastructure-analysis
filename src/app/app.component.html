@@ -1,3 +1,25 @@
-<app-topbar class="toolbar"></app-topbar>
+<div class="toolbar">
+  <app-topbar></app-topbar>
+</div>
 
-<app-map class="map"></app-map>
+<div class="mat-tabs">
+  <mat-tab-group class="map" (selectedTabChange)="onTabClick($event)">
+    <mat-tab class="map" label="Mapa">
+      <app-map class="map"></app-map>
+    </mat-tab>
+    <mat-tab label="Tablica" class="map">
+      <div class="container">
+        <mat-card class="card">
+          <div class="title">
+            <mat-card-title class="card-title"
+              >Tablica provedenih analiza</mat-card-title
+            >
+          </div>
+          <div class="table">
+            <app-map-table></app-map-table>
+          </div>
+        </mat-card>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

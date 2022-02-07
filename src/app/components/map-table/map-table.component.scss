@@ -1,0 +1,56 @@
+.mat-column-cost,
+.mat-column-date,
+.mat-column-outlet,
+.mat-column-distance,
+.mat-column-coordinates,
+.mat-column-shortestPath {
+  min-width: 130px !important;
+}
+
+.mat-column-coordinates {
+  max-width: 200px !important;
+}
+
+:host ::ng-deep .mat-header-cell {
+  text-align: center;
+}
+
+:host ::ng-deep .mat-cell {
+  text-align: center;
+}
+
+:host ::ng-deep .mat-table {
+  min-height: 100px !important;
+}
+
+.no-data {
+  background: #424242;
+  background-color: #424242;
+  color: white;
+  font-size: 15px;
+  text-align: center;
+}
+
+:host ::ng-deep .mat-form-field.mat-focused .mat-form-field-ripple {
+  background-color: white;
+}
+
+:host ::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+  color: white;
+}
+
+:host ::ng-deep .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+  color: white;
+}
+
+::ng-deep .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+  color: white;
+}
+
+.table-btn {
+  float: right;
+}
+
+.btn-container {
+  padding-top: 15px;
+}

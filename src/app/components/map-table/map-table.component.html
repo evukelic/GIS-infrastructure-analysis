@@ -1,0 +1,66 @@
+<table
+  mat-table
+  [dataSource]="dataSource"
+  class="mat-elevation-z8"
+  matTableExporter
+  #exporter="matTableExporter"
+>
+  <ng-container matColumnDef="date">
+    <th mat-header-cell *matHeaderCellDef>Datum</th>
+    <td mat-cell *matCellDef="let element">{{ element.date }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="coordinates">
+    <th mat-header-cell *matHeaderCellDef>Točka upita (x, y)</th>
+    <td mat-cell *matCellDef="let element">{{ element.coordinates }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="outlet">
+    <th mat-header-cell *matHeaderCellDef>Najbliži izvod (ID)</th>
+    <td mat-cell *matCellDef="let element">{{ element.outlet }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="distance">
+    <th mat-header-cell *matHeaderCellDef>Udaljenost (m, .4)</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.distance }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="shortestPath">
+    <th mat-header-cell *matHeaderCellDef>Najkraća putanja (ID)</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.shortestPath }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="cost">
+    <th mat-header-cell *matHeaderCellDef>Cijena (m)</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.cost }}
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+
+<div class="no-data" *ngIf="isEmpty">Nema provedenih analiza.</div>
+
+<mat-paginator
+  [length]="100"
+  [pageSize]="10"
+  [pageSizeOptions]="[5, 10]"
+  aria-label="Select page"
+>
+</mat-paginator>
+
+<div class="btn-container" *ngIf="!isEmpty">
+  <button
+    mat-raised-button
+    class="table-btn"
+    (click)="exporter.exportTable('xls')"
+  >
+    Izvezi kao Excel
+  </button>
+</div>

@@ -1,3 +1,9 @@
+:host {
+  box-sizing: border-box;
+  display: block;
+  height: 100%;
+}
+
 .toolbar {
   width: 100%;
   height: 5%;
@@ -8,7 +14,71 @@
 .map {
   width: 100%;
   height: 100%;
-  position: absolute;
+}
+
+.mat-tabs {
+  position: relative;
+  color: rgb(0, 0, 0);
   top: 0;
   left: 0;
+  height: 100%;
+  z-index: 1000;
+}
+
+/* active tab */
+::ng-deep .mat-tab-list .mat-tab-labels .mat-tab-label-active {
+  color: rgb(255, 255, 255);
+}
+
+::ng-deep .mat-tab-list .mat-tab-label {
+  padding-top: 1%;
+  color: rgb(255, 255, 255);
+}
+
+::ng-deep .mat-tab-header {
+  height: 7% !important;
+  padding-left: 10%;
+}
+
+/* ink bar */
+::ng-deep .mat-ink-bar {
+  background-color: var(--primary-color, rgb(255, 255, 255)) !important;
+  padding-bottom: 5px;
+}
+
+:host ::ng-deep .mat-tab-body-wrapper {
+  height: 100% !important;
+}
+
+:host ::ng-deep .mat-tab-body.mat-tab-body-active {
+  height: 100% !important;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.table {
+  padding-top: 3%;
+  width: 100%;
+}
+
+.card {
+  width: fit-content;
+  height: fit-content;
+  background-color: white;
+  color: black;
+  margin-top: 25px;
+}
+
+.title {
+  width: 100%;
+}
+
+.card-title {
+  color: #424242;
 }
