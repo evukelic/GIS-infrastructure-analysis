@@ -102,7 +102,7 @@ export class DataServiceService {
             date: this.parseDate(response[1]),
             coordinates: this.parseCoordinates(response[2]),
             outlet: response[3],
-            distance: this.roundDistance(response[4]),
+            distance: this.roundDistance(response[4], 2),
             shortestPath: response[5],
             cost: response[6],
           } as History;
@@ -121,12 +121,15 @@ export class DataServiceService {
   private parseCoordinates(point: string) {
     const coordinates = this.splitCoordinates(point, '(', ')', ' ');
 
-    return `${coordinates[0]},\n\n${coordinates[1]}`;
+    return `${this.roundDistance(coordinates[0], 2)},\n\n${this.roundDistance(
+      coordinates[1],
+      2
+    )}`;
   }
 
-  private roundDistance(distance: string): string {
+  private roundDistance(distance: string, precision: number): string {
     const num: number = +distance;
-    return num.toFixed(4);
+    return num.toFixed(precision);
   }
 
   private transformCoordinates(coordinates: string): L.LatLng {
@@ -186,6 +189,9 @@ export class DataServiceService {
 
   public latLngToXY(latLng: L.LatLng): string[] {
     const coord = L.Projection.SphericalMercator.project(latLng);
-    return [coord.x.toString(), coord.y.toString()];
+    return [
+      this.roundDistance(coord.x.toString(), 2),
+      this.roundDistance(coord.y.toString(), 2),
+    ];
   }
 }
