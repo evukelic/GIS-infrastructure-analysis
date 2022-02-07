@@ -223,8 +223,9 @@ export class MapComponent implements AfterViewInit {
   }
 
   private drawClosestOutletRoute(latLng: L.LatLng, data: any[]): void {
+    const xy = this.dataService.latLngToXY(latLng);
     var locationMarker = new L.Marker([latLng.lat, latLng.lng]).bindPopup(
-      `Lokacija ${latLng}`
+      `Lokacija: ${xy[0]}, ${xy[1]}`
     );
 
     const color = this.getColorForDistance(data[0].distance);
@@ -237,7 +238,7 @@ export class MapComponent implements AfterViewInit {
     const outletMarker = L.circleMarker(outlet.coordinates, {
       color: color,
       radius: 9,
-    }).bindPopup(`Najbliži izvod za lokaciju ${latLng}`);
+    }).bindPopup(`Najbliži izvod za lokaciju ${xy[0]}, ${xy[1]}`);
 
     const outletLayerGroup = L.layerGroup([
       locationMarker,

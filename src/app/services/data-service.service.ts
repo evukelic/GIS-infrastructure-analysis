@@ -183,4 +183,9 @@ export class DataServiceService {
 
     return ['(', ')', ','];
   }
+
+  public latLngToXY(latLng: L.LatLng): string[] {
+    const coord = L.Projection.SphericalMercator.project(latLng);
+    return [coord.x.toString(), coord.y.toString()];
+  }
 }
